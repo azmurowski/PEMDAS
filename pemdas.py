@@ -136,7 +136,7 @@ def checkAnswer(canvas_object,game_object):
 
     else:  # if it's wrong just diplay message and move to the screen update
         canvas.itemconfigure(correct_label, text='Incorrect', fill= INCORRECTRED )
-        canvas.itemconfigure(correct_answer, text='actualy it\'s {}'.format(int(eval(game_object.equation))), fill=INCORRECTRED)
+        canvas.itemconfigure(correct_answer, text='actually it\'s {}'.format(int(eval(game_object.equation))), fill=INCORRECTRED)
 
 #generates a fresh equation and resets the check_answer flag. Sets screen update to True so that the screen is updated next loop
 def nextQuestion(root_object,canvas_object,game_object):
@@ -195,7 +195,9 @@ def on_closing(root,game_object):
 #TKINTER
 #declaring the window size
 root = Tk()
+
 root.overrideredirect(1)
+
 try:
     BACKGROUND = PhotoImage(file='background.pbm')
 except:
@@ -221,7 +223,7 @@ SMALL = int((1/100)*HEIGHT)
 #Bunch of text displayed on the canvas
 game = gameClass()
 
-canvas = Canvas(width = WIDTH,height = HEIGHT)
+canvas = Canvas(width = WIDTH,height = HEIGHT,highlightthickness=0)
 try:
     bg = canvas.create_image(0,0,image = BACKGROUND, anchor = NW)
 except:
